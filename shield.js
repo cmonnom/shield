@@ -3,7 +3,7 @@ var Bug, Shield, Human;
 function createBugs() {
     var j, results;
     results = [];
-    for (i = j = 0; j <= 600; i = ++j) {
+    for (i = j = 0; j < 600; i = ++j) {
         results.push(new Bug(0, random(this.height)));
     }
     return results;
@@ -65,7 +65,7 @@ Bug = (function () {
         this.vx *= 0.95;
         this.vy *= 0.95;
         if ((this.vx < 0.1 && this.x > ctx.width * 0.1) || this.x > ctx.width * 0.99) {
-            this.dead = true;
+            this.dead = true;;
         }
         if (this.spurt > 0.5) {
             this.spurt -= 0.1;
@@ -141,7 +141,7 @@ Shield = (function () {
         this.x = x;
         this.y = y;
         this.growthRadius = 0.0001;
-        this.radius = random(20, 50);
+        this.radius = random(30, 50);
         this.life = this.radius;
         this.threshold = 50;
         this.active = false;
@@ -150,7 +150,7 @@ Shield = (function () {
 
     Shield.prototype.update = function (ctx, index, ndt) {
         if (!this.active) {
-            this.growthRadius += 1;
+            this.growthRadius += 1.5;
             if (this.growthRadius >= this.radius) {
                 this.active = true;
             }
@@ -232,7 +232,9 @@ $(document).ready(() => {
             if (this.waveCount == 5 || infectedCount == this.humans.length) {
                 //Game Over
                 this.bugs = [];
-                this.finalMessage = this.waveCount == 5 ? "You saved " + (this.humans.length - infectedCount) + " people!" : "You were overwelmed... F5 to restart";
+                var savedCount = this.humans.length - infectedCount;
+                var personPeople = savedCount == 1 ? " person" : " people";
+                this.finalMessage = this.waveCount == 5 ? ("You saved " + savedCount + personPeople + "!") : "You were overwelmed... F5 to restart";
             }
             return results;
         },
