@@ -1,0 +1,42 @@
+body {
+    background: #111;
+
+}
+
+canvas {
+    display: block;
+}
+
+p {
+    background: rgba(0, 0, 0, .5);
+    border-top: none;
+    border-left: none;
+    border-radius: 0 0 6px 0;
+    color: #ccc;
+    font: 11px/1.5 sans-serif;
+    padding: 10px 15px;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+}
+
+p strong {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+#shieldCount {
+    position: absolute;
+    left: 15px;
+    top: 100px;
+    color: #ccc;
+    font-size: 50px;
+}
+
+#finalMessage {
+    position: absolute;
+    left: 100px;
+    top: 300px;
+    color: #ccc;
+    font-size: 50px;
+}
